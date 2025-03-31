@@ -23,7 +23,6 @@ export const Display = () => {
           <span key={index}>*</span>
         ))}
       </div>
-      {/* Показываем текст только после проверки (isAccessGranted !== null) */}
       {isAccessGranted !== null && password.length > 0 && (
         <div style={{ textAlign: 'center' }}>
           {isAccessGranted ? 'Доступ разрешен' : 'Доступ запрещен!'}

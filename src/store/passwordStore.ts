@@ -3,7 +3,7 @@ import { create } from 'zustand';
 interface PasswordStore {
   password: string;
   passwordCorrect: string;
-  isAccessGranted: boolean | null; // null означает "не проверено"
+  isAccessGranted: boolean | null;
   handleAdd: (value: string) => void;
   handleRemove: () => void;
   handleCheck: () => void;
@@ -12,7 +12,7 @@ interface PasswordStore {
 export const usePasswordStore = create<PasswordStore>((set) => ({
   password: '',
   passwordCorrect: '7777',
-  isAccessGranted: null, // Изначально null, а не false
+  isAccessGranted: null, 
   handleAdd: (value) =>
     set((state) => ({
       password: state.password.length < 4 ? state.password + value : state.password,
@@ -26,7 +26,7 @@ export const usePasswordStore = create<PasswordStore>((set) => ({
       const isCorrect = state.password === state.passwordCorrect;
       return {
         isAccessGranted: isCorrect,
-        password: isCorrect ? '' : state.password, // Сбрасываем пароль только при успехе
+        password: isCorrect ? '' : state.password,
       };
     }),
 }));
